@@ -1,7 +1,6 @@
 "use client";
 
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/common";
-import { useRef } from "react";
 
 const faq = [
   {
@@ -34,11 +33,9 @@ const faq = [
 ];
 
 export const HomeFAQ = () => {
-  const sectionRef = useRef<HTMLDivElement>(null);
-
   return (
-    <div ref={sectionRef} id="faq" className="w-full max-w-(--breakpoint-xl) mx-auto py-8 sm:py-16 px-6">
-      <h2 className="md:text-center text-3xl md:text-5xl leading-[1.15]! font-bold tracking-tighter">
+    <div id="faq" className="max-w-(--breakpoint-xl) mx-auto w-full py-20 px-6">
+      <h2 className="md:text-center text-4xl md:text-5xl leading-[1.15]! font-bold tracking-tighter">
         Frequently Asked Questions
       </h2>
       <p className="mt-1.5 md:text-center sm:text-lg text-muted-foreground">

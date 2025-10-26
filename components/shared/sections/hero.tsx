@@ -2,12 +2,15 @@
 
 import { Badge, Button } from "@/components/common";
 import { ArrowUpRight, CirclePlay } from "lucide-react";
-import Placeholder from "@/app/_assets/svg/placeholder.svg";
+import Placeholder from "@/public/svg/placeholder.svg";
 import Image from "next/image";
+import { BackgroundPattern } from "@/components/common";
 
 export const HomeHero = () => {
   return (
-    <section className="min-h-[calc(100vh-4rem)] w-full flex items-center justify-center overflow-hidden border-b border-accent">
+    <section className="relative min-h-[calc(100vh-4rem)] w-full flex items-center justify-center overflow-hidden border-b border-accent">
+      <BackgroundPattern />
+
       <div className="max-w-(--breakpoint-xl) w-full flex flex-col lg:flex-row mx-auto items-center justify-between gap-y-14 gap-x-10 px-6 py-12 lg:py-0">
         <div className="max-w-2xl lg:max-w-xl">
           <Badge className="rounded-full py-1 border-none">Just released v1.0.0</Badge>

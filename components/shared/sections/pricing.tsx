@@ -3,7 +3,6 @@
 import { Badge, Button, Separator } from "@/components/common";
 import { cn } from "@/lib/utils";
 import { CircleCheck } from "lucide-react";
-import { useRef } from "react";
 
 const plans = [
   {
@@ -39,10 +38,8 @@ const plans = [
 ];
 
 export const HomePricing = () => {
-  const sectionRef = useRef<HTMLDivElement>(null);
-
   return (
-    <section ref={sectionRef} id="pricing" className="max-w-(--breakpoint-lg) mx-auto py-12 sm:py-20 px-6">
+    <section id="pricing" className="max-w-(--breakpoint-lg) mx-auto py-16 px-6">
       <h1 className="text-4xl sm:text-5xl font-bold text-center tracking-tight">Simple, Transparent Pricing</h1>
       <div className="mt-8 sm:mt-14 grid grid-cols-1 lg:grid-cols-2 items-center gap-8 lg:gap-0">
         {plans.map((plan) => (

@@ -4,6 +4,7 @@ import { Menu } from "lucide-react";
 import { Button, Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/common";
 import { MobileNavMenu } from "./mobileNavMenu";
 import { LogoMain } from "@/components/shared/logo/main";
+import Link from "next/link";
 
 export const NavigationSheet = () => {
   return (
@@ -24,8 +25,12 @@ export const NavigationSheet = () => {
         <MobileNavMenu />
 
         <div className="mt-8 space-y-4 px-4">
-          <Button className="w-full max-sm:h-10 sm:hidden">Sign In</Button>
-          <Button className="w-full max-sm:h-10 sm:hidden">Get Started</Button>
+          <Button variant="outline" className="w-full max-sm:h-10 sm:hidden" asChild>
+            <Link href="/signin">Sign In</Link>
+          </Button>
+          <Button className="w-full max-sm:h-10 sm:hidden" asChild>
+            <Link href="/signup">Get Started</Link>
+          </Button>
         </div>
       </SheetContent>
     </Sheet>

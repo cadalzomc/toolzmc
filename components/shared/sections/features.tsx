@@ -2,7 +2,6 @@
 
 import { Card, CardContent, CardHeader } from "@/components/common";
 import { BookCheck, ChartPie, FolderSync, Goal, Users, Zap } from "lucide-react";
-import { useRef } from "react";
 
 const features = [
   {
@@ -38,10 +37,8 @@ const features = [
 ];
 
 export const HomeFeatures = () => {
-  const sectionRef = useRef<HTMLDivElement>(null);
-
   return (
-    <section id="features" ref={sectionRef} className="max-w-(--breakpoint-xl) mx-auto w-full py-12 sm:py-20 px-6">
+    <section id="features" className="min-h-[calc(100vh-4rem)] max-w-(--breakpoint-xl) mx-auto w-full py-16 px-6">
       <h2 className="text-3xl md:text-5xl md:leading-14 font-bold tracking-tight sm:max-w-xl sm:text-center sm:mx-auto">
         Boost Your Strategy with Smart Features
       </h2>

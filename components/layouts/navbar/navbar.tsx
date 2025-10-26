@@ -39,7 +39,9 @@ const Navbar = () => {
           <Button variant="outline" className="hidden sm:inline-flex" asChild>
             <Link href="/signin">Sign In</Link>
           </Button>
-          <Button className="hidden sm:inline-flex">Get Started</Button>
+          <Button className="hidden sm:inline-flex" asChild>
+            <Link href="/signup">Get Started</Link>
+          </Button>
 
           {/* Mobile Menu */}
           <div className="lg:hidden">
