@@ -1,0 +1,17 @@
+{
+  "editor.quickSuggestions": {
+    "strings": true
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[prisma]": {
+    "editor.defaultFormatter": "Prisma.prisma"
+  },
+  "editor.formatOnSave": true,
+  "typescript.referencesCodeLens.enabled": true,
+  "typescript.implementationsCodeLens.enabled": true,
+  "typescript.referencesCodeLens.showOnAllFunctions": true,
+  "prettier.printWidth": 120
+}
