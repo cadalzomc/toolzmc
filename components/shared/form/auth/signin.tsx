@@ -5,7 +5,7 @@ import { UIButton } from "@/components/ui";
 import { toast } from "@/lib/hooks";
 import { useStoreAuth } from "@/lib/stores";
 import { TRPC } from "@/lib/utils";
-import { EyeClosedIcon, EyeIcon, User2Icon, Lock } from "lucide-react";
+import { EyeClosedIcon, EyeIcon, Lock, Mail } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
@@ -23,7 +23,7 @@ export const FormAuthSignIn = () => {
     setIsLoading(true);
     const res = await login(authLogin);
     if (res.code !== "Success") {
-      console.log("ERRORLOGIN", res.message);
+      console.error("ERRORLOGIN", res.message);
       toast({
         title: "Login Failed!",
         description: res.message,
@@ -51,7 +51,7 @@ export const FormAuthSignIn = () => {
         className="h-11 sm:h-12"
         type="text"
         autoComplete="current-username"
-        iconLeft={<User2Icon className="h-4 w-4" />}
+        iconLeft={<Mail className="h-4 w-4" />}
         value={authLogin.email}
         onChange={(e) => setAuthLoginField("email", e.target.value)}
         errors={authLoginErrors}

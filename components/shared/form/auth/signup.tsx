@@ -5,7 +5,7 @@ import { UIButton } from "@/components/ui";
 import { toast } from "@/lib/hooks";
 import { useStoreAuth } from "@/lib/stores";
 import { TRPC } from "@/lib/utils";
-import { EyeClosedIcon, EyeIcon, User2Icon, Lock, CircleCheckBigIcon } from "lucide-react";
+import { EyeClosedIcon, EyeIcon, User2Icon, Lock, CircleCheckBigIcon, Mail } from "lucide-react";
 
 import { useState } from "react";
 
@@ -25,7 +25,7 @@ export const FormAuthSignUp = () => {
 
     const res = await register(authRegister);
     if (res.code !== "Success") {
-      console.log("ERRORLOGIN", res.message);
+      console.error("ERRORLOGIN", res.message);
       toast({
         title: "Signup Failed!",
         description: res.message,
@@ -63,7 +63,7 @@ export const FormAuthSignUp = () => {
         className="h-11 sm:h-12"
         type="text"
         autoComplete="new-email"
-        iconLeft={<User2Icon className="h-4 w-4" />}
+        iconLeft={<Mail className="h-4 w-4" />}
         value={authRegister.email}
         onChange={(e) => setAuthRegisterField("email", e.target.value)}
         errors={authRegisterErrors}

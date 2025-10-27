@@ -23,3 +23,4 @@ export * from "./form/formfield";
 export * from "./form/formtextarea";
 
 export * from "./background/pattern";
+export * from "./spinner/spinner";

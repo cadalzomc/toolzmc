@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "@/components/common";
+import { Button, FullScreenLoaderSpinner } from "@/components/common";
 
 import { NavMenu } from "./navMenu";
 import { NavigationSheet } from "./navSheet";
@@ -13,7 +13,7 @@ import { useUser } from "@/lib/hooks";
 import { UserDropdownMenu } from "./userMenu";
 
 const Navbar = () => {
-  const { user } = useUser();
+  const { user, loading } = useUser();
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -23,6 +23,10 @@ const Navbar = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  if (loading) {
+    return <FullScreenLoaderSpinner />;
+  }
 
   return (
     <nav
