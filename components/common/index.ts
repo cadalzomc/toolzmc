@@ -4,6 +4,7 @@ export * from "./base/badge";
 export * from "./base/button";
 export * from "./base/card";
 export * from "./base/checkbox";
+export * from "./base/dropdown-menu";
 export * from "./base/label";
 export * from "./base/input";
 export * from "./base/separator";

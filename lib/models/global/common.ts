@@ -6,3 +6,8 @@ export interface IMenuItem {
   icon: LucideIcon;
   badge?: string;
 }
+
+export interface IValidation {
+  success: boolean;
+  errors: Record<string, string>;
+}

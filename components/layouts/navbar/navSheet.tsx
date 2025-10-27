@@ -26,7 +26,7 @@ export const NavigationSheet = () => {
 
         <div className="mt-8 space-y-4 px-4">
           <Button variant="outline" className="w-full max-sm:h-10 sm:hidden" asChild>
-            <Link href="/signin">Sign In</Link>
+            <Link href="/auth/signin">Sign In</Link>
           </Button>
           <Button className="w-full max-sm:h-10 sm:hidden" asChild>
             <Link href="/signup">Get Started</Link>

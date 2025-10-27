@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Raleway } from "next/font/google";
 import "@/styles/css/globals.css";
-import { ProviderTheme as ThemeProvider } from "@/lib/context";
+import { QueryProviders, ProviderTheme as ThemeProvider } from "@/lib/context";
 
 const raleway = Raleway({ subsets: ["latin"], weight: ["500", "600"] });
 
@@ -18,7 +18,9 @@ export default function RootLayout({
   return (
     <html lang="en" data-scroll-behavior="smooth" suppressHydrationWarning>
       <body className={raleway.className}>
-        <ThemeProvider>{children}</ThemeProvider>
+        <QueryProviders>
+          <ThemeProvider>{children}</ThemeProvider>
+        </QueryProviders>
       </body>
     </html>
   );

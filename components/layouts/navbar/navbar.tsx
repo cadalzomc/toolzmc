@@ -9,8 +9,11 @@ import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 import { LogoMain } from "@/components/shared/logo/main";
 import Link from "next/link";
+import { useUser } from "@/lib/hooks";
+import { UserDropdownMenu } from "./userMenu";
 
 const Navbar = () => {
+  const { user } = useUser();
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -35,13 +38,19 @@ const Navbar = () => {
         <NavMenu className="hidden lg:block" />
 
         <div className="flex items-center gap-3">
-          <ThemeToggle />
-          <Button variant="outline" className="hidden sm:inline-flex" asChild>
-            <Link href="/signin">Sign In</Link>
-          </Button>
-          <Button className="hidden sm:inline-flex" asChild>
-            <Link href="/signup">Get Started</Link>
-          </Button>
+          {user ? (
+            <UserDropdownMenu user={user} />
+          ) : (
+            <>
+              <ThemeToggle />
+              <Button variant="outline" className="hidden sm:inline-flex" asChild>
+                <Link href="/auth/signin">Sign In</Link>
+              </Button>
+              <Button className="hidden sm:inline-flex" asChild>
+                <Link href="/auth/signup">Get Started</Link>
+              </Button>
+            </>
+          )}
 
           {/* Mobile Menu */}
           <div className="lg:hidden">
