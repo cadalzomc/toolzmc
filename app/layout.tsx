@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Raleway } from "next/font/google";
 import "@/styles/css/globals.css";
 import { QueryProviders, ProviderTheme as ThemeProvider } from "@/lib/context";
+import { Toaster } from "@/components/common";
 
 const raleway = Raleway({ subsets: ["latin"], weight: ["500", "600"] });
 
@@ -19,7 +20,10 @@ export default function RootLayout({
     <html lang="en" data-scroll-behavior="smooth" suppressHydrationWarning>
       <body className={raleway.className}>
         <QueryProviders>
-          <ThemeProvider>{children}</ThemeProvider>
+          <ThemeProvider>
+            {children}
+            <Toaster />
+          </ThemeProvider>
         </QueryProviders>
       </body>
     </html>
