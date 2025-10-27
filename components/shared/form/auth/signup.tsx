@@ -36,8 +36,8 @@ export const FormAuthSignUp = () => {
     }
 
     setIsSuccess(true);
-    resetRegister();
     setIsLoading(false);
+    resetRegister();
   };
 
   return (

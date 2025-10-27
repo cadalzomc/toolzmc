@@ -38,8 +38,9 @@ export const FormAuthSignIn = () => {
       description: res.message,
       variant: "success",
     });
-    resetLogin();
+
     navigate.push("/");
+    resetLogin();
   };
 
   return (

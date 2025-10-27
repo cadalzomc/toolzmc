@@ -1,5 +1,6 @@
 export * from "./base/accordion";
 export * from "./base/alert";
+export * from "./base/alert-dialog";
 export * from "./base/avatar";
 export * from "./base/badge";
 export * from "./base/button";
@@ -24,3 +25,4 @@ export * from "./form/formtextarea";
 
 export * from "./background/pattern";
 export * from "./spinner/spinner";
+export * from "./dialog/alert";
