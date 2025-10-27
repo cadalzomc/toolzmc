@@ -1,30 +1,43 @@
 "use client";
 
-import { Button, FormField } from "@/components/common";
+import { Alert, AlertDescription, AlertTitle, Button, FormField } from "@/components/common";
 import { UIButton } from "@/components/ui";
-import { register } from "@/lib/common/auth";
+import { toast } from "@/lib/hooks";
 import { useStoreAuth } from "@/lib/stores";
-import { EyeClosedIcon, EyeIcon, User2Icon, Lock } from "lucide-react";
+import { TRPC } from "@/lib/utils";
+import { EyeClosedIcon, EyeIcon, User2Icon, Lock, CircleCheckBigIcon } from "lucide-react";
 
 import { useState } from "react";
 
 export const FormAuthSignUp = () => {
-  const { authRegister, authRegisterErrors, setAuthRegisterField, validateUserRegister } = useStoreAuth();
+  const { authRegister, authRegisterErrors, setAuthRegisterField, validateUserRegister, resetRegister } =
+    useStoreAuth();
+  const { mutateAsync: register } = TRPC.auth.Register.useMutation();
   const [showPassword, setShowPassword] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isSiuccess, setIsSuccess] = useState(false);
 
   const handleRegister = async () => {
     const { success } = validateUserRegister();
     if (!success) return;
 
+    setIsLoading(true);
+
     const res = await register(authRegister);
     if (res.code !== "Success") {
       console.log("ERRORLOGIN", res.message);
+      toast({
+        title: "Signup Failed!",
+        description: res.message,
+        variant: "error",
+      });
+      setIsLoading(false);
       return;
     }
 
-    console.log("SUCCESSLOGIN", res.message);
-
-    console.log("SUCCESSLOGIN", authRegister);
+    setIsSuccess(true);
+    resetRegister();
+    setIsLoading(false);
   };
 
   return (
@@ -40,6 +53,7 @@ export const FormAuthSignUp = () => {
         value={authRegister.name}
         onChange={(e) => setAuthRegisterField("name", e.target.value)}
         errors={authRegisterErrors}
+        disabled={isLoading}
         required
       />
       <FormField
@@ -53,6 +67,7 @@ export const FormAuthSignUp = () => {
         value={authRegister.email}
         onChange={(e) => setAuthRegisterField("email", e.target.value)}
         errors={authRegisterErrors}
+        disabled={isLoading}
         required
       />
 
@@ -73,15 +88,32 @@ export const FormAuthSignUp = () => {
         value={authRegister.password}
         onChange={(e) => setAuthRegisterField("password", e.target.value)}
         errors={authRegisterErrors}
+        disabled={isLoading}
         required
       />
 
       <UIButton
         text="Sign Up"
+        isLoading={isLoading}
         loadingText="Signing up..."
         className="h-11 sm:h-12 rounded-xl"
         onClick={handleRegister}
       />
+
+      {isSiuccess && (
+        <Alert className="border-emerald-600/50 text-emerald-600 dark:border-emerald-600 [&>svg]:text-emerald-600">
+          <CircleCheckBigIcon className="size-4" />
+          <AlertTitle className="font-bold mb-1">Signup Successful</AlertTitle>
+          <AlertDescription className="text-emerald-600">
+            <ul className="list-disc text-[13px]">
+              <li>Youre almost there!</li>
+              <li>Please check your email inbox (and spam folder)</li>
+              <li>Click the link to verify your account</li>
+              <li>Verification link has 5 minutes to expire</li>
+            </ul>
+          </AlertDescription>
+        </Alert>
+      )}
     </div>
   );
 };

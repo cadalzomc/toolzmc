@@ -21,17 +21,21 @@ export const UserDropdownMenu = ({ user }: IUserDropdownMenu) => {
     <DropdownMenu>
       <DropdownMenuTrigger className="flex items-center gap-3 focus-visible:outline-none outline-none">
         <Avatar>
-          <AvatarFallback className="bg-primary text-primary-foreground">M</AvatarFallback>
+          <AvatarFallback className="bg-primary text-primary-foreground">
+            {user.user_metadata.display_name.charAt(0).toUpperCase()}
+          </AvatarFallback>
         </Avatar>
         <div className="text-start flex flex-col">
-          <p className="text-sm font-medium">Meigo Cadalzo</p>
+          <p className="text-sm font-medium">{user.user_metadata.display_name}</p>
           <p className="text-xs text-muted-foreground">{user.email}</p>
         </div>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="mt-2 w-72">
         <DropdownMenuItem className="py-3">
           <Avatar>
-            <AvatarFallback className="bg-primary text-primary-foreground">MW</AvatarFallback>
+            <AvatarFallback className="bg-primary text-primary-foreground">
+              {user.user_metadata.display_name.charAt(0).toUpperCase()}
+            </AvatarFallback>
           </Avatar>
           <div className="ml-1 flex flex-col">
             <p className="text-sm font-medium">My Account</p>

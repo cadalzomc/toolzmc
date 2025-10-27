@@ -4,7 +4,7 @@ import { FetchCreateContextFnOptions } from "@trpc/server/adapters/fetch";
 
 export async function createContext({ req }: FetchCreateContextFnOptions) {
   const supabase = await dbServer();
-  const signature = req.headers.get("x-niftyers");
+  const signature = req.headers.get("x-niftyers") ?? undefined;
   const {
     data: { user },
   } = await supabase.auth.getUser();

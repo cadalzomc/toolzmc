@@ -4,7 +4,7 @@ import { createTRPCReact } from "@trpc/react-query";
 import { AppRouter } from "@/server/router/_app";
 
 const APIURL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
-const APITOKEN = process.env.NEXT_PUBLIC_APP_VERSION || "";
+const APITOKEN = process.env.NEXT_PUBLIC_APP_KEY || "";
 
 export const TRPC = createTRPCReact<AppRouter>();
 

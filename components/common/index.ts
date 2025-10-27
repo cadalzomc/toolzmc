@@ -1,4 +1,5 @@
 export * from "./base/accordion";
+export * from "./base/alert";
 export * from "./base/avatar";
 export * from "./base/badge";
 export * from "./base/button";

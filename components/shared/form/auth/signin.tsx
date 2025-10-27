@@ -2,27 +2,46 @@
 
 import { Button, FormField } from "@/components/common";
 import { UIButton } from "@/components/ui";
-import { login } from "@/lib/common/auth";
+import { toast } from "@/lib/hooks";
 import { useStoreAuth } from "@/lib/stores";
+import { TRPC } from "@/lib/utils";
 import { EyeClosedIcon, EyeIcon, User2Icon, Lock } from "lucide-react";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 export const FormAuthSignIn = () => {
+  const navigate = useRouter();
+  const { mutateAsync: login } = TRPC.auth.Login.useMutation();
   const [showPassword, setShowPassword] = useState(false);
-  const { authLogin, authLoginErrors, setAuthLoginField, validateUserLogin } = useStoreAuth();
+  const [isLoading, setIsLoading] = useState(false);
+  const { authLogin, authLoginErrors, setAuthLoginField, validateUserLogin, resetLogin } = useStoreAuth();
 
   const handleSignIn = async () => {
     const { success } = validateUserLogin();
     if (!success) return;
 
+    setIsLoading(true);
     const res = await login(authLogin);
     if (res.code !== "Success") {
       console.log("ERRORLOGIN", res.message);
+      toast({
+        title: "Login Failed!",
+        description: res.message,
+        variant: "error",
+      });
+      setIsLoading(false);
       return;
     }
 
-    console.log("SUCCESSLOGIN", res.message);
+    toast({
+      title: "Success!",
+      description: res.message,
+      variant: "success",
+    });
+    resetLogin();
+    navigate.push("/");
   };
+
   return (
     <div className="space-y-3">
       <FormField
@@ -36,6 +55,7 @@ export const FormAuthSignIn = () => {
         value={authLogin.email}
         onChange={(e) => setAuthLoginField("email", e.target.value)}
         errors={authLoginErrors}
+        disabled={isLoading}
         required
       />
 
@@ -56,10 +76,17 @@ export const FormAuthSignIn = () => {
         value={authLogin.password}
         onChange={(e) => setAuthLoginField("password", e.target.value)}
         errors={authLoginErrors}
+        disabled={isLoading}
         required
       />
 
-      <UIButton text="Sign in" loadingText="Signing in..." className="h-11 sm:h-12 rounded-xl" onClick={handleSignIn} />
+      <UIButton
+        text="Sign in"
+        isLoading={isLoading}
+        loadingText="Signing in..."
+        className="h-11 sm:h-12 rounded-xl"
+        onClick={handleSignIn}
+      />
     </div>
   );
 };
