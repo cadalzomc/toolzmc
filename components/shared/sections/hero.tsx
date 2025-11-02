@@ -5,6 +5,7 @@ import { ArrowUpRight, CirclePlay } from "lucide-react";
 import Placeholder from "@/public/svg/placeholder.svg";
 import Image from "next/image";
 import { BackgroundPattern } from "@/components/common";
+import Link from "next/link";
 
 export const HomeHero = () => {
   return (
@@ -22,8 +23,10 @@ export const HomeHero = () => {
             power for developers.
           </p>
           <div className="mt-12 flex flex-col sm:flex-row items-center gap-4">
-            <Button size="lg" className="w-full sm:w-auto rounded-full text-base">
-              Get Started <ArrowUpRight className="h-5! w-5!" />
+            <Button size="lg" className="w-full sm:w-auto rounded-full text-base" asChild>
+              <Link href="/auth/signup">
+                Get Started <ArrowUpRight className="h-5! w-5!" />
+              </Link>
             </Button>
             <Button variant="outline" size="lg" className="w-full sm:w-auto rounded-full text-base shadow-none">
               <CirclePlay className="h-5! w-5!" /> Explore Tools

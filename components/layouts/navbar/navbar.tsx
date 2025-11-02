@@ -4,7 +4,6 @@ import { Button, FullScreenLoaderSpinner } from "@/components/common";
 
 import { NavMenu } from "./navMenu";
 import { NavigationSheet } from "./navSheet";
-import ThemeToggle from "./themeToggle";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 import { LogoMain } from "@/components/shared/logo/main";
@@ -12,6 +11,7 @@ import Link from "next/link";
 import { useUser } from "@/lib/hooks";
 import { UserDropdownMenu } from "./userMenu";
 import { ArrowRight } from "lucide-react";
+import ThemeToggle from "./themeToggle";
 
 const Navbar = () => {
   const { user, loading } = useUser();
@@ -44,7 +44,10 @@ const Navbar = () => {
 
         <div className="flex items-center gap-2">
           {user ? (
-            <UserDropdownMenu user={user} />
+            <>
+              <UserDropdownMenu user={user} />
+              <ThemeToggle />
+            </>
           ) : (
             <>
               <ThemeToggle />

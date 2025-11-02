@@ -1,11 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { dbBrowser } from "@/lib/utils";
 import type { User } from "@supabase/supabase-js";
+import { supabaseClient } from "../config";
 
 export const useUser = () => {
-  const supabase = dbBrowser();
+  const supabase = supabaseClient();
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
 

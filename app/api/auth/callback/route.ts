@@ -1,4 +1,4 @@
-import { dbServer } from "@/lib/db/server";
+import { supabaseServer } from "@/server/db";
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
@@ -7,7 +7,7 @@ export async function GET(req: NextRequest) {
   const code = url.searchParams.get("code");
 
   const res = NextResponse.redirect(new URL("/", url.origin));
-  const supabase = await dbServer();
+  const supabase = await supabaseServer();
 
   if (code) {
     await supabase.auth.exchangeCodeForSession(code);

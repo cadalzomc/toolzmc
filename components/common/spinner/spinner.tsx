@@ -14,16 +14,13 @@ export const FullScreenLoaderSpinner = ({ className, parentClassName }: IFullScr
     document.body.style.overflow = "hidden";
 
     return () => {
-      document.body.style.overflow = originalStyle; // restore on unmount
+      document.body.style.overflow = originalStyle;
     };
   }, []);
 
   return (
     <div
-      className={cn(
-        "fixed  inset-0 bg-background flex z-900 items-center justify-center min-h-screen",
-        parentClassName
-      )}
+      className={cn("fixed  inset-0 bg-background flex z-50 items-center justify-center min-h-screen", parentClassName)}
     >
       <Loader className={cn("w-7 h-7 animate-spin", className)} />
     </div>

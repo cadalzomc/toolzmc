@@ -5,8 +5,10 @@ import { Button, Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/compone
 import { MobileNavMenu } from "./mobileNavMenu";
 import { LogoMain } from "@/components/shared/logo/main";
 import Link from "next/link";
+import { useUser } from "@/lib/hooks";
 
 export const NavigationSheet = () => {
+  const { user } = useUser();
   return (
     <Sheet>
       <VisuallyHiddenPrimitive.Root>
@@ -24,14 +26,16 @@ export const NavigationSheet = () => {
 
         <MobileNavMenu />
 
-        <div className="mt-8 space-y-4 px-4">
-          <Button variant="outline" className="w-full max-sm:h-10 sm:hidden" asChild>
-            <Link href="/auth/signin">Sign In</Link>
-          </Button>
-          <Button className="w-full max-sm:h-10 sm:hidden" asChild>
-            <Link href="/signup">Get Started</Link>
-          </Button>
-        </div>
+        {!user && (
+          <div className="mt-8 space-y-4 px-4">
+            <Button variant="outline" className="w-full max-sm:h-10 sm:hidden" asChild>
+              <Link href="/auth/signin">Sign In</Link>
+            </Button>
+            <Button className="w-full max-sm:h-10 sm:hidden" asChild>
+              <Link href="/auth/signup">Get Started</Link>
+            </Button>
+          </div>
+        )}
       </SheetContent>
     </Sheet>
   );

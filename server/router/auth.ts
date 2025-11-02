@@ -1,5 +1,5 @@
 import { publicProcedure, router } from "@/server/trpc";
-import { Login, Register } from "../actions";
+import { Login, Register } from "../service";
 import { ZodAuthLogin, ZodAuthRegister } from "@/lib/zod";
 
 export const authRouter = router({

@@ -1,10 +1,10 @@
 "use client";
 
+import { supabaseClient } from "@/lib/config";
 import { IResponse } from "@/lib/models";
-import { dbBrowser } from "@/lib/utils";
 
 export const logout = async (): Promise<IResponse<undefined>> => {
-  const supabase = dbBrowser();
+  const supabase = supabaseClient();
 
   try {
     const { error } = await supabase.auth.signOut();

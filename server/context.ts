@@ -1,9 +1,9 @@
-import { dbServer } from "@/lib/db/server";
 import { inferAsyncReturnType } from "@trpc/server";
 import { FetchCreateContextFnOptions } from "@trpc/server/adapters/fetch";
+import { supabaseServer } from "./db";
 
 export async function createContext({ req }: FetchCreateContextFnOptions) {
-  const supabase = await dbServer();
+  const supabase = await supabaseServer();
   const signature = req.headers.get("x-niftyers") ?? undefined;
   const {
     data: { user },

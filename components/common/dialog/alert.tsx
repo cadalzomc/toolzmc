@@ -49,6 +49,7 @@ interface ReusableAlertDialogProps {
   loadingText?: ReactNode;
   title: ReactNode;
   description?: ReactNode;
+  hasCancel?: boolean;
   cancelText?: string;
   actionText?: string;
   variant?: Variant;
@@ -64,6 +65,7 @@ export const UIAlertDialog = ({
   description,
   loading,
   loadingText = "Processing...",
+  hasCancel = false,
   cancelText = "Cancel",
   actionText = "Continue",
   variant = "destructive",
@@ -86,14 +88,16 @@ export const UIAlertDialog = ({
             )}
             {title}
           </AlertDialogTitle>
-          {description && (
-            <AlertDialogDescription className="text-[15px] text-center">{description}</AlertDialogDescription>
-          )}
         </AlertDialogHeader>
+        {description && (
+          <AlertDialogDescription className="text-[15px] text-center" asChild>
+            {description}
+          </AlertDialogDescription>
+        )}
         <AlertDialogFooter className="mt-2 sm:justify-center">
-          <AlertDialogCancel onClick={onCancel}>{cancelText}</AlertDialogCancel>
+          {hasCancel && <AlertDialogCancel onClick={onCancel}>{cancelText}</AlertDialogCancel>}
           <AlertDialogAction
-            className={cn("text-white!", buttonVariants({ variant: config.actionVariant }))}
+            className={cn("text-white dark:text-black", buttonVariants({ variant: config.actionVariant }))}
             onClick={onAction}
           >
             {loading && <Loader className="w-5 h-5 animate-spin" />}

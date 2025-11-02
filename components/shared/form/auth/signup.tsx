@@ -1,15 +1,17 @@
 "use client";
 
-import { Alert, AlertDescription, AlertTitle, Button, FormField } from "@/components/common";
+import { Alert, AlertDescription, AlertTitle, Button, FormField, UIAlertDialog } from "@/components/common";
 import { UIButton } from "@/components/ui";
 import { toast } from "@/lib/hooks";
 import { useStoreAuth } from "@/lib/stores";
 import { TRPC } from "@/lib/utils";
 import { EyeClosedIcon, EyeIcon, User2Icon, Lock, CircleCheckBigIcon, Mail } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 import { useState } from "react";
 
 export const FormAuthSignUp = () => {
+  const navigate = useRouter();
   const { authRegister, authRegisterErrors, setAuthRegisterField, validateUserRegister, resetRegister } =
     useStoreAuth();
   const { mutateAsync: register } = TRPC.auth.Register.useMutation();
@@ -100,20 +102,29 @@ export const FormAuthSignUp = () => {
         onClick={handleRegister}
       />
 
-      {isSiuccess && (
-        <Alert className="border-emerald-600/50 text-emerald-600 dark:border-emerald-600 [&>svg]:text-emerald-600">
-          <CircleCheckBigIcon className="size-4" />
-          <AlertTitle className="font-bold mb-1">Signup Successful</AlertTitle>
-          <AlertDescription className="text-emerald-600">
-            <ul className="list-disc text-[13px]">
-              <li>Youre almost there!</li>
-              <li>Please check your email inbox (and spam folder)</li>
-              <li>Click the link to verify your account</li>
-              <li>Verification link has 5 minutes to expire</li>
-            </ul>
-          </AlertDescription>
-        </Alert>
-      )}
+      <UIAlertDialog
+        open={isSiuccess}
+        onOpenChange={setIsSuccess}
+        variant="success"
+        title="Signup Successful!"
+        description={
+          <Alert className="border-emerald-600/50 text-emerald-600 dark:border-emerald-700 [&>svg]:text-emerald-700 text-left!">
+            <CircleCheckBigIcon className="size-4" />
+            <AlertTitle className="font-bold mb-1">Thank you for signing up</AlertTitle>
+            <AlertDescription className="text-emerald-600">
+              <ul className="list-disc text-sm">
+                <li>Youre almost there!</li>
+                <li>Please check your email inbox (and spam folder)</li>
+                <li>Click the link to verify your account</li>
+                <li>Verification link has 5 minutes to expire</li>
+                <li>You can now close this window</li>
+              </ul>
+            </AlertDescription>
+          </Alert>
+        }
+        actionText="Close"
+        onAction={() => navigate.replace("/")}
+      />
     </div>
   );
 };

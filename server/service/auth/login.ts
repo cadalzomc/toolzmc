@@ -1,10 +1,10 @@
 "use server";
 
-import { dbServer } from "@/lib/db/server";
 import { IPayloadLogin, IResponse } from "@/lib/models";
+import { supabaseServer } from "@/server/db";
 
 export const Login = async (payload: IPayloadLogin): Promise<IResponse<undefined>> => {
-  const supabase = await dbServer();
+  const supabase = await supabaseServer();
   try {
     const { error } = await supabase.auth.signInWithPassword({ ...payload });
 

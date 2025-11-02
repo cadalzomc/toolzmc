@@ -3,7 +3,11 @@
 import { AnimatedThemeToggler, Button } from "@/components/common";
 import { useEffect, useState } from "react";
 
-const ThemeToggle = () => {
+interface IThemeToggle {
+  className?: string;
+}
+
+const ThemeToggle = ({ className }: IThemeToggle) => {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -15,7 +19,7 @@ const ThemeToggle = () => {
     return <Button variant="outline" size="icon" />;
   }
 
-  return <AnimatedThemeToggler />;
+  return <AnimatedThemeToggler className={className} />;
 };
 
 export default ThemeToggle;

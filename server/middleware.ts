@@ -30,7 +30,7 @@ export async function updateSession(request: NextRequest) {
 
   const path = request.nextUrl.pathname;
 
-  if (user && (path.startsWith("/auth/signin") || path.startsWith("/auth/register"))) {
+  if (user && (path.startsWith("/auth/signin") || path.startsWith("/auth/signup"))) {
     return NextResponse.redirect(new URL("/", request.url));
   }
 
