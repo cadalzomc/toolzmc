@@ -3,8 +3,8 @@ import { UIButton } from "@/components/ui";
 import { Inbox, MailIcon, MapPinIcon, MessageCircle, PhoneIcon, User2Icon } from "lucide-react";
 import Link from "next/link";
 
-export const HomeContact = () => (
-  <div id="contact" className="max-w-(--breakpoint-xl) mx-auto w-full py-20 px-6">
+const HomeContact = () => (
+  <div id="contact" className="max-w-(--breakpoint-xl) mx-auto w-full py-14 px-4 sm:px-6">
     <p className="text-muted-foreground md:text-center uppercase font-semibold text-sm">Contact Us</p>
     <h2 className="mt-3 text-4xl md:text-5xl md:text-center font-semibold tracking-tight">
       Chat with our friendly team!
@@ -57,8 +57,8 @@ export const HomeContact = () => (
       </div>
 
       {/* Form */}
-      <Card className="shadow-none py-0">
-        <CardContent className="p-4 sm:p-6 md:p-8">
+      <Card className="shadow-none py-0 border-none">
+        <CardContent className="p-0! sm:p-4!">
           <form>
             <div className="space-y-3">
               <div className="grid md:grid-cols-2 gap-x-3 gap-y-6">
@@ -114,3 +114,4 @@ export const HomeContact = () => (
     </div>
   </div>
 );
+export default HomeContact;

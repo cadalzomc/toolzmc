@@ -27,7 +27,7 @@ const LayoutAuthMain = ({ children }: { children: ReactNode }) => {
         </div>
       </div>
       <div className="relative order-1 flex h-full">
-        <div className="m-auto max-w-md">
+        <div className="m-auto sm:min-w-md">
           <Link className="w-fit sm:mt-10 absolute top-0 mb-20 text-zinc-950 dark:text-white" href="/">
             <div className="flex w-fit items-center lg:pl-0 lg:pt-0 xl:pt-0">
               <ChevronLeft className="mr-3 h-4 w-4 text-zinc-950 dark:text-white" />

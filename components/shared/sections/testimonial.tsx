@@ -59,7 +59,7 @@ const testimonials = [
 
 export const HomeTestimonial = () => {
   return (
-    <section id="testimonials" className="min-h-screen flex justify-center items-center py-16 px-6">
+    <section id="testimonials" className="min-h-screen flex justify-center items-center py-16 px-4 sm:px-8">
       <div>
         <h2 className="text-4xl sm:text-5xl font-semibold text-center tracking-[-0.03em]">Loved by Developers</h2>
         <p className="mt-2 mb-16 text-center text-muted-foreground text-xl">

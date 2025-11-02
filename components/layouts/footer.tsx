@@ -34,35 +34,6 @@ const footerSections = [
     ],
   },
   {
-    title: "Company",
-    links: [
-      {
-        title: "About us",
-        href: "#",
-      },
-      {
-        title: "Careers",
-        href: "#",
-      },
-      {
-        title: "Press",
-        href: "#",
-      },
-      {
-        title: "News",
-        href: "#",
-      },
-      {
-        title: "Media kit",
-        href: "#",
-      },
-      {
-        title: "Contact",
-        href: "#",
-      },
-    ],
-  },
-  {
     title: "Resources",
     links: [
       {
@@ -154,7 +125,7 @@ const footerSections = [
 const Footer = () => {
   return (
     <footer className="mt-12 sm:mt-20 dark bg-background border-t">
-      <div className="max-w-(--breakpoint-xl) mx-auto py-12 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-7 gap-x-8 gap-y-10 px-6">
+      <div className="max-w-(--breakpoint-xl) mx-auto py-12 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-x-8 gap-y-10 px-6">
         <div className="col-span-full xl:col-span-2">
           <LogoMain />
 

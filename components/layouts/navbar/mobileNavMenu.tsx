@@ -2,15 +2,9 @@ import { SheetClose } from "@/components/common";
 import { CONST_NAV_MENU } from "@/lib/data";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronRightIcon } from "lucide-react";
+import Link from "next/link";
 
 export const MobileNavMenu = () => {
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   return (
     <AnimatePresence>
       <div className="px-4 space-y-1 w-full">
@@ -22,8 +16,8 @@ export const MobileNavMenu = () => {
             transition={{ delay: index * 0.2 }}
           >
             <SheetClose asChild>
-              <div
-                onClick={() => scrollToSection(item.url)}
+              <Link
+                href={item.url}
                 className="w-full flex  justify-between py-4 text-sm font-semibold border-b border-[#ecd9e7] dark:border-[#362e34]"
               >
                 <span className="flex gap-2 items-center">
@@ -31,7 +25,7 @@ export const MobileNavMenu = () => {
                   {item.title}
                 </span>
                 <ChevronRightIcon className="w-4 mr-2" />
-              </div>
+              </Link>
             </SheetClose>
           </motion.div>
         ))}

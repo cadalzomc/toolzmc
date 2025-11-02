@@ -1,5 +1,3 @@
-"use client";
-
 import { Badge, Button, Separator } from "@/components/common";
 import { cn } from "@/lib/utils";
 import { CircleCheck } from "lucide-react";
@@ -37,10 +35,16 @@ const plans = [
   },
 ];
 
-export const HomePricing = () => {
+const HomePricing = () => {
   return (
-    <section id="pricing" className="max-w-(--breakpoint-lg) mx-auto py-16 px-4 sm:px-6">
-      <h1 className="text-4xl sm:text-5xl font-bold sm:text-center tracking-tight">Simple, Transparent Pricing</h1>
+    <section className="max-w-(--breakpoint-lg) mx-auto py-16 px-4 sm:px-6">
+      <p className="text-muted-foreground md:text-center uppercase font-semibold text-sm">Pricing</p>
+      <h2 className="mt-3 text-4xl md:text-5xl md:text-center font-semibold tracking-tight">
+        Simple, Transparent Pricing
+      </h2>
+      <p className="mt-3 text-base md:text-center sm:text-lg text-muted-foreground">
+        Everything you need to boost your productivity.
+      </p>
       <div className="mt-8 sm:mt-14 grid grid-cols-1 lg:grid-cols-2 items-center gap-8 lg:gap-0">
         {plans.map((plan) => (
           <div
@@ -76,3 +80,5 @@ export const HomePricing = () => {
     </section>
   );
 };
+
+export default HomePricing;

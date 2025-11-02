@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { Raleway } from "next/font/google";
+import { Outfit } from "next/font/google";
 import "@/styles/css/globals.css";
 import { QueryProviders, ProviderTheme as ThemeProvider } from "@/lib/context";
 import { Toaster } from "@/components/common";
 
-const raleway = Raleway({ subsets: ["latin"], weight: ["500", "600"] });
+const raleway = Outfit({ subsets: ["latin"], weight: ["500", "600"] });
 
 export const metadata: Metadata = {
   title: "MCTool",

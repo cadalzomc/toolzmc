@@ -1,14 +1,17 @@
+"use client";
+
 import { Separator } from "@/components/common";
 import { FormAuthSignUp, OauthSignIn } from "@/components/shared/form";
+import { motion } from "framer-motion";
 import Link from "next/link";
 
 const SignUpPage = () => {
   return (
-    <>
-      <div className="mb-4 space-y-1">
+    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.3 }}>
+      <div className="mb-8 space-y-1">
         <p className="text-2xl sm:text-3xl font-bold text-zinc-950 dark:text-white">Create Your Account</p>
-        <p className="text-sm sm:text-base text-muted-foreground">
-          Join thousands of developers and professionals who streamline their workflow with our tools.
+        <p className="text-sm text-muted-foreground">
+          Join thousands of developers and professionals who streamline <br /> their workflow with our tools.
         </p>
       </div>
 
@@ -30,7 +33,7 @@ const SignUpPage = () => {
           </Link>
         </p>
       </div>
-    </>
+    </motion.div>
   );
 };
 

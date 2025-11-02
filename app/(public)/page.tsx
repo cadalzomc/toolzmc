@@ -1,12 +1,4 @@
-import {
-  HomeContact,
-  HomeFAQ,
-  HomeFeatures,
-  HomeHero,
-  HomePricing,
-  HomeStats,
-  HomeTestimonial,
-} from "@/components/shared/sections";
+import { HomeFAQ, HomeFeatures, HomeHero, HomeStats, HomeTestimonial } from "@/components/shared/sections";
 
 export default function Home() {
   return (
@@ -15,9 +7,7 @@ export default function Home() {
       <HomeStats />
       <HomeFeatures />
       <HomeTestimonial />
-      <HomePricing />
       <HomeFAQ />
-      <HomeContact />
     </>
   );
 }

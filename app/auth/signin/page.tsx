@@ -1,13 +1,16 @@
+"use client";
+
 import { Separator } from "@/components/common";
 import { FormAuthSignIn, OauthSignIn } from "@/components/shared/form";
+import { motion } from "framer-motion";
 import Link from "next/link";
 
 const SignInPage = () => {
   return (
-    <>
-      <div className="mb-4">
+    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.3 }}>
+      <div className="mb-8">
         <p className="text-2xl sm:text-3xl font-bold text-zinc-950 dark:text-white">Welcome Back!</p>
-        <p className="text-sm sm:text-base text-muted-foreground">
+        <p className="text-sm text-muted-foreground">
           Sign in to access your saved tools, history, and other features.
         </p>
       </div>
@@ -30,7 +33,7 @@ const SignInPage = () => {
           </Link>
         </p>
       </div>
-    </>
+    </motion.div>
   );
 };
 

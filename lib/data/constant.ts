@@ -1,30 +1,30 @@
-import { FunctionSquareIcon, Home, MessageSquareQuote, TagIcon, Users } from "lucide-react";
+import { Bolt, Contact, Home, TagIcon, Users } from "lucide-react";
 import { IMenuItem } from "../models";
 
 export const CONST_NAV_MENU: IMenuItem[] = [
   {
-    title: "Features",
-    url: "features",
+    title: "Home",
+    url: "/",
     icon: Home,
   },
   {
-    title: "Testimonials",
-    url: "testimonials",
-    icon: MessageSquareQuote,
-  },
-  {
     title: "Pricing",
-    url: "pricing",
+    url: "/pricing",
     icon: TagIcon,
   },
   {
-    title: "FAQ",
-    url: "faq",
-    icon: FunctionSquareIcon,
+    title: "Tools",
+    url: "/tools",
+    icon: Bolt,
   },
   {
     title: "Contact",
-    url: "contact",
+    url: "/contact",
+    icon: Contact,
+  },
+  {
+    title: "About Us",
+    url: "/about",
     icon: Users,
   },
 ];

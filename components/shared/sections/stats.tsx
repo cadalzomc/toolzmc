@@ -1,6 +1,6 @@
 export const HomeStats = () => {
   return (
-    <div className="max-w-(--breakpoint-xl) sm:text-center mx-auto w-full mt-8 sm:my-16 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-8 gap-y-10 justify-center px-6">
+    <div className="max-w-(--breakpoint-xl) sm:text-center mx-auto w-full mt-8 sm:my-16 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-8 gap-y-10 justify-center px-4 sm:px-6">
       <div>
         <span className="text-5xl md:text-6xl tracking-tight font-semibold">400+</span>
         <p className="mt-6 font-medium text-xl">Active Users</p>

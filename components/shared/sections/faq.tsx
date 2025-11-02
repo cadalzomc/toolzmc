@@ -34,7 +34,7 @@ const faq = [
 
 export const HomeFAQ = () => {
   return (
-    <div id="faq" className="max-w-(--breakpoint-xl) mx-auto w-full py-20 px-6">
+    <div id="faq" className="max-w-(--breakpoint-xl) mx-auto w-full py-20 px-4 sm:px-6">
       <h2 className="md:text-center text-4xl md:text-5xl leading-[1.15]! font-bold tracking-tighter">
         Frequently Asked Questions
       </h2>

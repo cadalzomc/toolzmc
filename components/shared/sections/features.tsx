@@ -38,23 +38,26 @@ const features = [
 
 export const HomeFeatures = () => {
   return (
-    <section id="features" className="min-h-[calc(100vh-4rem)] max-w-(--breakpoint-xl) mx-auto w-full py-16 px-6">
-      <h2 className="text-3xl md:text-5xl md:leading-14 font-bold tracking-tight sm:max-w-xl sm:text-center sm:mx-auto">
-        Boost Your Strategy with Smart Features
-      </h2>
-      <div className="mt-8 sm:mt-14 w-full mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-12">
-        {features.map((feature) => (
-          <Card key={feature.title} className="flex flex-col border rounded-xl overflow-hidden shadow-none">
-            <CardHeader>
-              <feature.icon />
-              <h4 className="mt-3! text-xl font-bold tracking-tight">{feature.title}</h4>
-              <p className="mt-1 text-muted-foreground text-sm sm:text-[17px]">{feature.description}</p>
-            </CardHeader>
-            <CardContent className="mt-auto px-0 pb-0">
-              <div className="bg-muted h-52 ml-6 rounded-tl-xl" />
-            </CardContent>
-          </Card>
-        ))}
+    <section id="features" className="min-h-screen flex justify-center items-center py-16 px-4 sm:px-6">
+      <div className="max-w-(--breakpoint-xl) mx-auto w-full">
+        <h2 className="text-4xl sm:text-5xl font-semibold text-left sm:text-center tracking-[-0.03em]">Our Features</h2>
+        <p className="mt-2 mb-16 text-left sm:text-center text-muted-foreground text-xl">
+          Boost Your Strategy with Smart Features
+        </p>
+        <div className="mt-8 sm:mt-14 w-full mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-12">
+          {features.map((feature) => (
+            <Card key={feature.title} className="flex flex-col border rounded-xl overflow-hidden shadow-none">
+              <CardHeader>
+                <feature.icon />
+                <h4 className="mt-3! text-xl font-bold tracking-tight">{feature.title}</h4>
+                <p className="mt-1 text-muted-foreground text-sm sm:text-[17px]">{feature.description}</p>
+              </CardHeader>
+              <CardContent className="mt-auto px-0 pb-0">
+                <div className="bg-muted h-52 ml-6 rounded-tl-xl" />
+              </CardContent>
+            </Card>
+          ))}
+        </div>
       </div>
     </section>
   );
