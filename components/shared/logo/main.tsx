@@ -8,7 +8,7 @@ interface LogoMainProps {
 export const LogoMain = ({ className }: LogoMainProps) => {
   return (
     <Link href="/" className="flex gap-2 items-center">
-      <Image src="/img/Logo.png" width={50} height={50} alt="mctoolz" className={cn("h-8 w-8", className)} />
+      <Image src="/img/Logo.png" width={100} height={100} alt="mctoolz" className={cn("h-9 w-17", className)} />
       <span className="font-bold text-xl">MCToolz</span>
     </Link>
   );

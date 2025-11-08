@@ -9,7 +9,7 @@ const LayoutAuthMain = ({ children }: { children: ReactNode }) => {
     <div className="grid h-dvh justify-center p-2 lg:grid-cols-2">
       <div className="bg-zinc-950 dark:bg-zinc-900 relative order-2 hidden h-full rounded-3xl lg:flex">
         <div className="text-white absolute top-10 space-y-1 px-10">
-          <Image src="/img/Logo.png" width={25} height={25} alt="mctoolz" className="size-10" />
+          <Image src="/img/Logo.png" width={100} height={100} alt="mctoolz" className="h-10 w-18" />
           <h1 className="text-2xl font-medium">MCTool</h1>
           <p className="text-sm">Generate. Convert. Sign. Repeat.</p>
         </div>
