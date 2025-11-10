@@ -1,7 +1,7 @@
 "use client";
 
 import { Card, CardContent, CardHeader } from "@/components/common";
-import { BookCheck, ChartPie, FolderSync, Goal, Users, Zap } from "lucide-react";
+import { BookCheck, ChartPie, FileDigit, FolderSync, Goal, Zap } from "lucide-react";
 
 const features = [
   {
@@ -11,8 +11,8 @@ const features = [
   },
   {
     icon: BookCheck,
-    title: "Annotators",
-    description: "Edit, comment, or highlight code, text, and images directly online.",
+    title: "Annotators / Signers",
+    description: "Edit, comment, or highlight code, text, and sign directly online.",
   },
   {
     icon: ChartPie,
@@ -20,19 +20,19 @@ const features = [
     description: "Create fake data, UUIDs, lorem ipsum, or quick templates for development.",
   },
   {
-    icon: Users,
+    icon: FileDigit,
     title: "Billing Tools",
     description: "Generate invoices, receipts, or subscription summaries easily.",
+  },
+  {
+    icon: Zap,
+    title: "Fakers (coming soon)",
+    description: "Generate realistic fake data (names, emails, addresses, images) for testing and demos.",
   },
   {
     icon: FolderSync,
     title: "AI-Assisted Utilities (coming soon)",
     description: "Use AI to generate, refactor, or summarize code snippets.",
-  },
-  {
-    icon: Zap,
-    title: "Accelerate Growth",
-    description: "Supercharge your growth by implementing strategies that drive results quickly and efficiently.",
   },
 ];
 
